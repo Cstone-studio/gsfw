@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8081
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# jwt
+jwt:
+  secret: dfj89ewqjf90j
