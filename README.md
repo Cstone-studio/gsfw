@@ -53,6 +53,14 @@ compile.sh clean后编译项目
 install.sh 生成生成环境jar包 // 生成的jar包在/target/路径下
 run.sh 启动jar包
 
+# 初始测试账号
+admin
+123456
+
+# swagger地址
+http://localhost:8081/swagger-ui.html
+注：认证处需要手动加上Bearer
+
 
 
 
