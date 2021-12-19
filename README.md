@@ -1,7 +1,15 @@
 # gsfw
 springboot框架基础包及Sample
 
-内容包括：双数据源，mysql连接，orcale连接，mybatis plus，swaager，spring security, JWT
+集成内容包括：
+1.双数据源
+2.mysql连接
+3.orcale连接
+4.mybatis plus
+5.swaager
+6.spring security
+7.JWT
+8.基于注解的验证规则示例
 
 # 目录结构
 项⽬根⽬录/src/main/java ：放置项⽬Java源代码
