@@ -1,8 +1,8 @@
 package com.gs.service.intf;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.mybatis.db1.User;
+import com.gs.repository.db1.UserMybatisRepository;
 import com.gs.third.jwt.JwtUser;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserMybatisRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username){

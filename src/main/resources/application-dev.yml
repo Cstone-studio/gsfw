@@ -23,3 +23,7 @@ spring:
         # max-idle: 10
         # max-wait: 10000
         # min-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: update #自动更新
+    show-sql: true  #日志中显示sql语句

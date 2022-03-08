@@ -1,8 +1,8 @@
-package com.gs.model.entity.db1;
+package com.gs.model.entity.mybatis.db1;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.gs.model.entity.BaseEntity;
+import com.gs.model.entity.mybatis.BaseEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

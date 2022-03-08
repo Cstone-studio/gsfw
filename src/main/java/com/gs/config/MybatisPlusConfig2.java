@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 @Configuration
 @MapperScan(basePackages = MybatisPlusConfig2.PACKAGE, sqlSessionFactoryRef = "sqlSessionFactory2")
 public class MybatisPlusConfig2 {
-    static final String PACKAGE = "com.gs.repository.db2";
+    static final String PACKAGE = "com.gs.repository.mybatis.db2";
     static final String MAPPER_LOCATION = "classpath:mapper/db2/*.xml";
 
     @Bean("db2")

@@ -11,6 +11,7 @@ jdk1.8
 6.spring security  
 7.JWT  
 8.基于注解的验证规则示例  
+9.jpa
 
 # 目录结构
 项⽬根⽬录/src/main/java ：放置项⽬Java源代码

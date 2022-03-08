@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.mybatis.db1.User;
+import com.gs.repository.db1.UserMybatisRepository;
 import com.gs.service.intf.JwtUserDetailsService;
 import com.gs.utils.JwtTokenUtil;
 
@@ -31,7 +31,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
   private final JwtTokenUtil jwtTokenUtil;
 
-  private final UserRepository userRepository;
+  private final UserMybatisRepository userRepository;
 
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)

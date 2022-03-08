@@ -6,8 +6,8 @@ import javax.validation.ConstraintValidatorContext;
 import javax.validation.Payload;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.mybatis.db1.User;
+import com.gs.repository.db1.UserMybatisRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -37,7 +37,7 @@ public @interface IsEmailExist {
     @AllArgsConstructor
     public class IsEmailExistValidator implements ConstraintValidator<IsEmailExist, String> {
 
-        private final UserRepository userRepository;
+        private final UserMybatisRepository userRepository;
 
         @Override
         public boolean isValid(String value, ConstraintValidatorContext context) {
