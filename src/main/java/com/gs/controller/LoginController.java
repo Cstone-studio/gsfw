@@ -38,7 +38,7 @@ public class LoginController {
 
     @ApiOperation(value = "用户登录")
     @PostMapping(value = "/login")
-    public R login(@Validated @RequestBody UserLoginDTO userLoginDTO){
+    public R login(@Validated @RequestBody UserLoginDTO userLoginDTO) {
 
         User user = userService.login(userLoginDTO);
 
