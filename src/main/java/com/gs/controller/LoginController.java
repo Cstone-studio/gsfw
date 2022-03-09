@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.gs.constant.enums.CodeEnum;
+import com.gs.convert.UserConvert;
 import com.gs.model.dto.UserDTO;
 import com.gs.model.dto.UserLoginDTO;
-import com.gs.model.entity.mybatis.db1.User;
-import com.gs.service.intf.UserMybatisService;
+import com.gs.model.entity.jpa.db1.User;
+import com.gs.repository.jpa.UserRepository;
+import com.gs.service.intf.UserService;
 import com.gs.third.jwt.JwtUser;
 import com.gs.utils.JwtTokenUtil;
 import com.gs.utils.R;
@@ -32,15 +34,19 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class LoginController {
 
-    private final UserMybatisService userMybatisService;
+    private final UserService userService;
 
     private final JwtTokenUtil jwtTokenUtil;
+
+    private final UserRepository userRepository;
+
+    private final UserConvert userConvert;
 
     @ApiOperation(value = "用户登录")
     @PostMapping(value = "/login")
     public R login(@Validated @RequestBody UserLoginDTO userLoginDTO) {
 
-        User user = userMybatisService.login(userLoginDTO);
+        User user = userService.login(userLoginDTO);
 
         if (null == user || user.getDeleted()) {
             return R.error(CodeEnum.IS_FAIL.getCode(), "账号不存在");
@@ -50,7 +56,7 @@ public class LoginController {
         String token = jwtTokenUtil.generateToken(new JwtUser(user));
 
         user.setToken(token);
-        userMybatisService.loginSuccess(user);
+        userService.loginSuccess(user);
 
         Map<String, String> result = new HashMap<>();
         result.put("token", token);
@@ -63,7 +69,7 @@ public class LoginController {
     @GetMapping(value = "/getUserInfo")
     public R getUserInfo() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDTO userDTO = userMybatisService.findByUseName(userDetails.getUsername());
+        UserDTO userDTO = userConvert.toDto(userRepository.findByUserName(userDetails.getUsername()));
 
         if (null == userDTO) {
             return R.error(CodeEnum.IS_FAIL.getCode(), "账号不存在");

@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import com.gs.model.dto.UserDTO;
+import com.gs.model.dto.UserLoginDTO;
 import com.gs.model.entity.jpa.db1.User;
 import com.gs.repository.jpa.UserRepository;
 import com.gs.service.intf.UserService;
@@ -24,6 +25,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.transaction.annotation.Propagation;
 
@@ -72,6 +74,20 @@ public class UserServiceLmpl implements UserService {
         if(optionalNews.isPresent()){
             userRepository.deleteById(id);
         }
+    }
+
+    @Override
+    public User login(UserLoginDTO userLoginDTO) {
+        return userRepository.findByUserNameAndPassword(userLoginDTO.getUserName(), DigestUtils.md5DigestAsHex(userLoginDTO.getPassword().getBytes()));
+    }
+
+    /**
+     * 登录成功后保存token,用来检验重复登录
+     * @param User 用户新信息
+     */
+    @Override
+    public void loginSuccess(User user) {
+        userRepository.save(user);
     }
 
     class Spec implements Specification<User> {

@@ -7,9 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.mybatis.db1.User;
-import com.gs.repository.db1.UserMybatisRepository;
+import com.gs.model.entity.jpa.db1.User;
+import com.gs.repository.jpa.UserRepository;
 import com.gs.service.intf.JwtUserDetailsService;
 import com.gs.utils.JwtTokenUtil;
 
@@ -31,7 +30,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
   private final JwtTokenUtil jwtTokenUtil;
 
-  private final UserMybatisRepository userRepository;
+  private final UserRepository userRepository;
 
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -73,10 +72,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     //查看是否当前账号是否已经在其他地方进行了登陆
     if(username != null && jwtToken != null) {
-      QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-      queryWrapper.lambda().eq(User::getUserName, username);
-      queryWrapper.lambda().eq(User::getToken, jwtToken);
-      User user = userRepository.selectOne(queryWrapper);
+      User user = userRepository.findByUserName(username);
       if(user == null){
         //有其他人在其他地方登陆当前账号，抛出异常
         try {

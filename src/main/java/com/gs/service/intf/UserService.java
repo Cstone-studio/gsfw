@@ -3,6 +3,8 @@ package com.gs.service.intf;
 import java.util.Map;
 
 import com.gs.model.dto.UserDTO;
+import com.gs.model.dto.UserLoginDTO;
+import com.gs.model.entity.jpa.db1.User;
 
 import org.springframework.data.domain.Pageable;
 
@@ -41,4 +43,8 @@ public interface UserService {
      * @param Long id 用户id
      */
     void delete(Long id);
+
+    User login(UserLoginDTO userLoginDTO);
+
+    void loginSuccess(User user);
 }

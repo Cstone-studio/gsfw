@@ -1,7 +1,7 @@
 package com.gs.third.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gs.model.entity.mybatis.db1.User;
+import com.gs.model.entity.jpa.db1.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
