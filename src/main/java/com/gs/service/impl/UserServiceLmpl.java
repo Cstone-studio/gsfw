@@ -14,6 +14,7 @@ import javax.persistence.criteria.Root;
 
 import com.gs.model.dto.UserDTO;
 import com.gs.model.dto.UserLoginDTO;
+import com.gs.model.dto.UserQueryDTO;
 import com.gs.model.entity.jpa.db1.User;
 import com.gs.repository.jpa.UserRepository;
 import com.gs.service.intf.UserService;
@@ -40,7 +41,7 @@ public class UserServiceLmpl implements UserService {
     private UserConvert userConvert;
 
     @Override
-    public Map<String, Object> page(UserDTO dto, Pageable pageable){
+    public Map<String, Object> page(UserQueryDTO dto, Pageable pageable){
         Page<User> page = userRepository.findAll(new Spec(dto),pageable);
         Map<String, Object> map = new HashMap<>();
         map.put("content", page.stream().collect(Collectors.toList()));
@@ -81,10 +82,6 @@ public class UserServiceLmpl implements UserService {
         return userRepository.findByUserNameAndPassword(userLoginDTO.getUserName(), DigestUtils.md5DigestAsHex(userLoginDTO.getPassword().getBytes()));
     }
 
-    /**
-     * 登录成功后保存token,用来检验重复登录
-     * @param User 用户新信息
-     */
     @Override
     public void loginSuccess(User user) {
         userRepository.save(user);
@@ -92,9 +89,9 @@ public class UserServiceLmpl implements UserService {
 
     class Spec implements Specification<User> {
 
-        private UserDTO userDTO;
+        private UserQueryDTO userDTO;
 
-        public Spec(UserDTO dto){
+        public Spec(UserQueryDTO dto){
             this.userDTO = dto;
         }
 

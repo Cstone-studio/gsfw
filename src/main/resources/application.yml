@@ -8,9 +8,7 @@ server:
       charset: UTF-8
       force: true
       enabled: true
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 # jwt
 jwt:
   secret: dfj89ewqjf90j
+

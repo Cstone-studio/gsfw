@@ -44,8 +44,6 @@ public @interface IsPhoneExist {
             if ("".equals(value) || null == value) {
                 return false;
             }else{
-                // QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-                // queryWrapper.lambda().eq(User::getMobile, value);
                 User mobileExist = userRepository.findByMobile(value);
                 if (null == mobileExist) {
                     return true;

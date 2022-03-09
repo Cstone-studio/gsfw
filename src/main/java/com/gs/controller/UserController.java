@@ -1,9 +1,7 @@
 package com.gs.controller;
 
-import com.gs.constant.consist.WebAuthConst;
-import com.gs.constant.enums.CodeEnum;
-import com.gs.convert.UserConvert;
 import com.gs.model.dto.UserDTO;
+import com.gs.model.dto.UserQueryDTO;
 import com.gs.utils.R;
 import com.gs.service.intf.UserService;
 
@@ -54,7 +52,7 @@ public class UserController {
 
     @ApiOperation(value = "分页查询用户")
     @GetMapping
-    public R page(UserDTO userDTO , Pageable pageable) {
-        return R.success(userService.page(userDTO, pageable));
+    public R page(UserQueryDTO userQueryDTO , Pageable pageable) {
+        return R.success(userService.page(userQueryDTO, pageable));
     }
 }

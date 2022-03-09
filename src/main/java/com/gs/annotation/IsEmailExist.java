@@ -44,8 +44,6 @@ public @interface IsEmailExist {
             if ("".equals(value) || null == value) {
                 return false;
             }else{
-                // QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-                // queryWrapper.lambda().eq(User::getEmail, value);
                 User emailExist = userRepository.findByEmail(value);
                 if (null == emailExist) {
                     return true;

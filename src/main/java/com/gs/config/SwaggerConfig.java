@@ -43,8 +43,9 @@ public class SwaggerConfig {
         responseMessageList.add(new ResponseMessageBuilder().code(400).message("请求参数缺失").build());
         responseMessageList.add(new ResponseMessageBuilder().code(401).message("认证失败").build());
         responseMessageList.add(new ResponseMessageBuilder().code(403).message("没有权限").build());
-        responseMessageList.add(new ResponseMessageBuilder().code(422).message("请求参数验证不通过").build());
         responseMessageList.add(new ResponseMessageBuilder().code(404).message("请求路径不存在").build());
+        responseMessageList.add(new ResponseMessageBuilder().code(422).message("请求参数验证不通过").build());
+        responseMessageList.add(new ResponseMessageBuilder().code(444).message("该账号已在其他地点登录,被迫下线").build());
         responseMessageList.add(new ResponseMessageBuilder().code(500).message("内部服务器错误").build());
 
         return new Docket(DocumentationType.SWAGGER_2)

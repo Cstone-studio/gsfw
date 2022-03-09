@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.gs.model.dto.UserDTO;
 import com.gs.model.dto.UserLoginDTO;
+import com.gs.model.dto.UserQueryDTO;
 import com.gs.model.entity.jpa.db1.User;
 
 import org.springframework.data.domain.Pageable;
@@ -16,7 +17,7 @@ public interface UserService {
      * @param Pageable pageable 分页对象
      * @return Object
      */
-    Map<String, Object> page(UserDTO dto, Pageable pageable);
+    Map<String, Object> page(UserQueryDTO dto, Pageable pageable);
 
     /**
      * 根据id查找用户
@@ -44,7 +45,15 @@ public interface UserService {
      */
     void delete(Long id);
 
+    /**
+     * 用户登录
+     * @param UserLoginDTO userLoginDTO 登录参数dto
+     */
     User login(UserLoginDTO userLoginDTO);
 
+    /**
+     * 登录成功后保存token,用来检验重复登录
+     * @param User 用户新信息
+     */
     void loginSuccess(User user);
 }

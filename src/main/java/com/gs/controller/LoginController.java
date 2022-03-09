@@ -49,7 +49,7 @@ public class LoginController {
         User user = userService.login(userLoginDTO);
 
         if (null == user || user.getDeleted()) {
-            return R.error(CodeEnum.IS_FAIL.getCode(), "账号不存在");
+            return R.error(CodeEnum.IS_FAIL.getCode(), "用户名或密码错误");
         }
 
         // 创建token

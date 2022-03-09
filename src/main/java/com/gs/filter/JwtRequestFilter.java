@@ -70,18 +70,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
       }
     }
 
-    //查看是否当前账号是否已经在其他地方进行了登陆
+    // 查看是否当前账号是否已经在其他地方进行了登陆
     if(username != null && jwtToken != null) {
       User user = userRepository.findByUserName(username);
-      if(user == null){
-        //有其他人在其他地方登陆当前账号，抛出异常
-        try {
-          int i = 0 / 0;
-        } catch (Exception e) {
-          HttpServletRequest req = (HttpServletRequest) request;
-          req.setAttribute("errorMessage", e);
-          req.getRequestDispatcher("/api/mutiLogin").forward(request, response);
-        }
+
+      if (!user.getToken().equals(jwtToken)) {
+        response.setStatus(444);
+        response.sendError(444, "被迫下线");
       }
     }
 
