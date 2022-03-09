@@ -8,13 +8,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Optional;
 
 /**
- * @author guozhenyua
+ * @author 
  * @version 1.0
  * @description
  * @createTime 2019/3/9
  **/
 @Configuration
 public class AuditorConfig implements AuditorAware<String> {
+    @Override
+    public Optional<String> getCurrentAuditor() {
         Object principalOrAnonymous = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principalOrAnonymous.getClass().equals(String.class))
         {
