@@ -2,6 +2,7 @@ package com.gs.controller;
 
 import com.gs.model.dto.UserDTO;
 import com.gs.model.dto.UserQueryDTO;
+import com.gs.repository.jpa.HospitalRepository;
 import com.gs.utils.R;
 import com.gs.service.intf.UserService;
 
@@ -29,6 +30,8 @@ public class UserController {
 
     private final UserService userService;
 
+    private final HospitalRepository hospitalRepository;
+
     @ApiOperation(value = "新增用户")
     @PostMapping
     public R add(@RequestBody UserDTO userDTO) {
@@ -54,5 +57,11 @@ public class UserController {
     @GetMapping
     public R page(UserQueryDTO userQueryDTO , Pageable pageable) {
         return R.success(userService.page(userQueryDTO, pageable));
+    }
+
+    @ApiOperation(value = "多表关联查询demo")
+    @GetMapping("/hospital")
+    public R hospital() {
+        return R.success(hospitalRepository.findAll());
     }
 }
