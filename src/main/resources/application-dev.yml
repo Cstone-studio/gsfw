@@ -1,6 +1,6 @@
 # 开发环境配置
 spring:
-  # 数据源配置
+  # 数据源配置(双数据源,单数据源的时候可以吧db2删除掉)
   datasource:
     db1: # 数据源1
       # mysql数据源配置例
@@ -9,6 +9,12 @@ spring:
       username: root
       password: 123456123456
       driver-class-name: com.mysql.cj.jdbc.Driver
+    # db2: # 数据源2
+      # orcale数据源配置例
+      # driver-class-name: oracle.jdbc.driver.OracleDriver
+      # url: jdbc:oracle:thin:@localhost:1521:dbServerName
+      # username: system
+      # password: system
   jpa:
     hibernate:
       ddl-auto: update #自动更新
