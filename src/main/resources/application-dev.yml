@@ -2,11 +2,12 @@
 spring:
   # 数据源配置
   datasource:
-    # mysql数据源配置例
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gs?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
-    username: root
-    password: 123456123456
+    db1: # 数据源1
+      # mysql数据源配置例
+      jdbc-url: jdbc:mysql://localhost:3306/gs?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 123456123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update #自动更新
