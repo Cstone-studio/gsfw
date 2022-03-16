@@ -11,7 +11,7 @@ jdk1.8
 6.spring security  
 7.JWT  
 8.基于注解的验证规则示例  
-9.jpa
+9.jpa集成
 
 # 目录结构
 项⽬根⽬录/src/main/java ：放置项⽬Java源代码
@@ -28,7 +28,12 @@ jdk1.8
 |_convert：放置entity与dto相互转换类  
 |_model：放置数据模型代码  
 &ensp;&ensp;&ensp;&ensp;|__entity：放置数据库实体对象定义  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;|__jpa：jpa实体类
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;|__mybatis：mybatis实体类
 &ensp;&ensp;&ensp;&ensp;|__dto：存放数据传输对象定义  
+|_repository：库方法
+&ensp;&ensp;&ensp;&ensp;|__jpa：jpa库方法
+&ensp;&ensp;&ensp;&ensp;|__mybatis：mybatis库方法
 |_service：放置具体的业务逻辑代码（接⼝和实现分离）  
 &ensp;&ensp;&ensp;&ensp;|__intf：存放业务逻辑接⼝定义  
 &ensp;&ensp;&ensp;&ensp;|__impl：存放业务逻辑实际实现  

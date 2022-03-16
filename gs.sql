@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : utf-8
 
- Date: 03/09/2022 14:31:54 PM
+ Date: 03/16/2022 14:36:29 PM
 */
 
 SET NAMES utf8;
@@ -63,7 +63,7 @@ CREATE TABLE `user` (
 --  Records of `user`
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES ('1', '0712', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '15909812111', b'0', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0NjgxNTIwNSwiaWF0IjoxNjQ2Nzk3MjA1fQ.56VaEr-xXQ0LuyDQKmkeGR7fb9QfPJ1NUc-qg_MJ89gL7-sjVoKo2PmlLkBnGvV63ENXJXtsTvNepxijEAPqyQ', '2021-12-22 11:42:33', null, '2022-03-09 11:40:06', null), ('21', 'liuchengd', '123456', 'admin2', '123123123', b'0', null, '2022-03-09 11:20:07', null, '2022-03-09 11:20:07', null), ('23', '111', '123456', 'admin3', '111', b'0', null, '2022-03-09 11:43:03', null, '2022-03-09 11:43:03', null), ('24', 'string', '123456', 'admin4', '132', b'0', null, '2022-03-09 11:50:29', 'admin', '2022-03-09 11:50:29', 'admin'), ('25', 'string', '123456', 'admin5', '132', b'0', null, '2022-03-09 11:51:26', 'admin', '2022-03-09 11:51:26', 'admin');
+INSERT INTO `user` VALUES ('1', '0712', 'e10adc3949ba59abbe56e057f20f883e', 'admin', '15909812111', b'0', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0NzQzMDI5MCwiaWF0IjoxNjQ3NDEyMjkwfQ.cqbvLrLEXY2bP2FQIMub9u-imly53EplCSbnEf3X9bZjb3gqRsrN3LmcuvdQsi7CNTE77gS0q0ax-ghcjGs3BA', '2021-12-22 11:42:33', null, '2022-03-16 14:31:30', null), ('21', 'liuchengd', '123456', 'admin2', '123123123', b'0', null, '2022-03-09 11:20:07', null, '2022-03-09 11:20:07', null), ('23', '111', '123456', 'admin3', '111', b'0', null, '2022-03-09 11:43:03', null, '2022-03-09 11:43:03', null), ('24', 'string', '123456', 'admin4', '132', b'0', null, '2022-03-09 11:50:29', 'admin', '2022-03-09 11:50:29', 'admin'), ('25', 'string', '123456', 'admin5', '132', b'0', null, '2022-03-09 11:51:26', 'admin', '2022-03-09 11:51:26', 'admin');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
