@@ -125,7 +125,14 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.2.3.Final</version>
 		</dependency>
-		<!-- jpa dependency/ -->
+		<!-- jpa dependency / -->
+		<!-- mybatis dependency -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.4.2</version>
+		</dependency>
+		<!-- mybatis dependency / -->
 	</dependencies>
 
 	<build>
