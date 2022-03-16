@@ -5,9 +5,8 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.Payload;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.jpa.db1.User;
+import com.gs.repository.jpa.UserRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -45,9 +44,7 @@ public @interface IsEmailExist {
             if ("".equals(value) || null == value) {
                 return false;
             }else{
-                QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-                queryWrapper.lambda().eq(User::getEmail, value);
-                User emailExist = userRepository.selectOne(queryWrapper);
+                User emailExist = userRepository.findByEmail(value);
                 if (null == emailExist) {
                     return true;
                 }else {

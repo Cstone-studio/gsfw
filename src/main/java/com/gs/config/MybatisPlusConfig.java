@@ -30,11 +30,11 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 @ConditionalOnClass(value = {PaginationInterceptor.class})
 @MapperScan(basePackages = MybatisPlusConfig.PACKAGE, sqlSessionFactoryRef = "sqlSessionFactory")
 public class MybatisPlusConfig implements TransactionManagementConfigurer {
-    static final String PACKAGE = "com.gs.repository.db1";
+    static final String PACKAGE = "com.gs.repository.mybatis";
     static final String MAPPER_LOCATION = "classpath:mapper/db1/*.xml";
 
     @Bean("db1")
-    @ConfigurationProperties(prefix = "spring.datasource.druid.db1")
+    @ConfigurationProperties(prefix = "spring.datasource.db1")
     public DataSource druidDataSource1() {
         DruidDataSource druidDataSource = new DruidDataSource();
         return druidDataSource;
@@ -62,7 +62,7 @@ public class MybatisPlusConfig implements TransactionManagementConfigurer {
     public MybatisPlusInterceptor paginationInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         // 数据库的配置DbType.ORACLE 根据自己的数据库选择
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.ORACLE));
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
 }

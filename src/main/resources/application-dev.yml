@@ -1,25 +1,15 @@
 # 开发环境配置
 spring:
-  # 数据源配置(双数据源,单数据源的时候可以吧db2删除掉)
+  # 数据源配置
   datasource:
-    druid:
+    db1: # 数据源1
       # mysql数据源配置例
-      db1:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/gs?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
-        username: root
-        password: 123456123456
-        initial-size: 5
-        max-idle: 10
-        max-wait: 10000
-        min-idle: 5
-      # orcale数据源配置例
-      # db2:
-        # driver-class-name: oracle.jdbc.driver.OracleDriver
-        # url: jdbc:oracle:thin:@localhost:1521:dbServerName
-        # username: system
-        # password: system
-        # initial-size: 5
-        # max-idle: 10
-        # max-wait: 10000
-        # min-idle: 5
+      url: jdbc:mysql://localhost:3306/gs?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+      jdbc-url: ${spring.datasource.db1.url}
+      username: root
+      password: 123456123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update #自动更新
+    show-sql: true  #日志中显示sql语句

@@ -5,9 +5,8 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.Payload;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.jpa.db1.User;
+import com.gs.repository.jpa.UserRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -45,9 +44,7 @@ public @interface IsPhoneExist {
             if ("".equals(value) || null == value) {
                 return false;
             }else{
-                QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-                queryWrapper.lambda().eq(User::getMobile, value);
-                User mobileExist = userRepository.selectOne(queryWrapper);
+                User mobileExist = userRepository.findByMobile(value);
                 if (null == mobileExist) {
                     return true;
                 }else {

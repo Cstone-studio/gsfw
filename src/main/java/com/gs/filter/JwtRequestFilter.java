@@ -7,9 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.gs.model.entity.db1.User;
-import com.gs.repository.db1.UserRepository;
+import com.gs.model.entity.jpa.db1.User;
+import com.gs.repository.jpa.UserRepository;
 import com.gs.service.intf.JwtUserDetailsService;
 import com.gs.utils.JwtTokenUtil;
 
@@ -71,21 +70,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
       }
     }
 
-    //查看是否当前账号是否已经在其他地方进行了登陆
+    // 查看是否当前账号是否已经在其他地方进行了登陆
     if(username != null && jwtToken != null) {
-      QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-      queryWrapper.lambda().eq(User::getUserName, username);
-      queryWrapper.lambda().eq(User::getToken, jwtToken);
-      User user = userRepository.selectOne(queryWrapper);
-      if(user == null){
-        //有其他人在其他地方登陆当前账号，抛出异常
-        try {
-          int i = 0 / 0;
-        } catch (Exception e) {
-          HttpServletRequest req = (HttpServletRequest) request;
-          req.setAttribute("errorMessage", e);
-          req.getRequestDispatcher("/api/mutiLogin").forward(request, response);
-        }
+      User user = userRepository.findByUserName(username);
+
+      if (!user.getToken().equals(jwtToken)) {
+        response.setStatus(444);
+        response.sendError(444, "被迫下线");
       }
     }
 

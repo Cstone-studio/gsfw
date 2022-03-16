@@ -2,7 +2,6 @@ package com.gs.model.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.Null;
 import javax.validation.constraints.NotNull;
 
 import com.gs.annotation.IsEmailExist;

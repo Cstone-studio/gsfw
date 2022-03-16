@@ -1,4 +1,4 @@
-package com.gs.model.entity;
+package com.gs.model.entity.mybatis;
 
 import java.io.Serializable;
 
