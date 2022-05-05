@@ -2,7 +2,7 @@ package com.gs.model.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import com.gs.annotation.IsEmailExist;
 import com.gs.annotation.IsPhone;
@@ -22,32 +22,32 @@ public class UserDTO implements Serializable {
     /**
      * 用户名
      */
-    @NotNull(message = "姓名不能为空")
+    @NotBlank(message = "姓名不能为空")
     private String userName;
 
     /**
      * 密码
      */
-    @NotNull(message = "密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     /**
      * 确认密码
      */
-    @NotNull(message = "确认密码不能为空")
+    @NotBlank(message = "确认密码不能为空")
     private String confirmPassword;
 
     /**
      * 邮箱
      */
-    @NotNull(message = "账号不能为空")
+    @NotBlank(message = "账号不能为空")
     @IsEmailExist
     private String email;
 
     /**
      * 手机号
      */
-    @NotNull
+    @NotBlank
     @IsPhone
     @IsPhoneExist
     private String mobile;

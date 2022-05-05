@@ -30,7 +30,6 @@ import lombok.AllArgsConstructor;
 @Api(tags = "用户登录相关")
 @RestController
 @RequestMapping("api")
-@Validated
 @AllArgsConstructor
 public class LoginController {
 

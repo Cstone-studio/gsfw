@@ -1,16 +1,16 @@
 package com.gs.model.dto;
 
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
 @Data
 public class UserLoginDTO {
 
-    @NotNull(message = "账号不能为空")
+    @NotBlank(message = "账号不能为空")
     private String userName;
 
-    @NotNull(message = "密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String password;
 }
