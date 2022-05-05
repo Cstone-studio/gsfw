@@ -33,9 +33,6 @@ public @interface PasswordEqual {
         public boolean isValid(UserDTO changePasswordDto, ConstraintValidatorContext constraintValidatorContext) {
             String newPassword = changePasswordDto.getPassword();
             String confirmPassword = changePasswordDto.getConfirmPassword();
-            if ((newPassword != null && newPassword.length() != 0) || (confirmPassword != null && confirmPassword.length() != 0)) {
-                return false;
-            }
             return newPassword.equals(confirmPassword);
         }
 
