@@ -8,6 +8,8 @@ spring:
       password: 123456123456
       driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
     hibernate:
       ddl-auto: update #自动更新
     show-sql: true  #日志中显示sql语句

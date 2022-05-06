@@ -16,6 +16,18 @@ spring:
       # username: system
       # password: system
   jpa:
+    #设置数据库方言
+    #for mysql org.hibernate.dialect.MySQL5Dialect
+    #for sqlserver org.hibernate.dialect.SQLServerDialect
+    #for oracle org.hibernate.dialect.Oracle10gDialect
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    generate-ddl: true #boolean类型,是否生成ddl
     hibernate:
-      ddl-auto: update #自动更新
+      #自动更新enum
+      #none: does nothing with the schema, makes no changes to the database
+      #validate: validate the schema, makes no changes to the database.
+      #update: update the schema.
+      #create: creates the schema, destroying previous data.
+      #create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+      ddl-auto: update
     show-sql: true  #日志中显示sql语句
