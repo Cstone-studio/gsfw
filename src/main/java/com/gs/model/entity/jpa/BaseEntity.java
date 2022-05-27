@@ -11,7 +11,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -40,14 +40,14 @@ public class BaseEntity implements Serializable {
      */
     @CreatedDate
     @Column(name = "create_time")
-    private Timestamp createTime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
     @LastModifiedDate
     @Column(name = "update_time")
-    private Timestamp updateTime;
+    private Date updateTime;
 
     @Column(name = "deleted")
     private Boolean deleted = false;
