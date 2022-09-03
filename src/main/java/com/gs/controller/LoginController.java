@@ -65,7 +65,7 @@ public class LoginController {
     }
 
     @ApiOperation(value = "根据token获取用户信息")
-    @GetMapping(value = "/getUserInfo")
+    @PostMapping(value = "/getUserInfo")
     public R getUserInfo() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDTO userDTO = userConvert.toDto(userRepository.findByUserName(userDetails.getUsername()));
