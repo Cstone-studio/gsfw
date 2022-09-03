@@ -21,7 +21,7 @@ spring:
     #for sqlserver org.hibernate.dialect.SQLServerDialect
     #for oracle org.hibernate.dialect.Oracle10gDialect
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    generate-ddl: true #boolean类型,是否生成ddl
+    generate-ddl: false #boolean类型,是否生成ddl
     hibernate:
       #自动更新enum
       #none: does nothing with the schema, makes no changes to the database
@@ -29,5 +29,5 @@ spring:
       #update: update the schema.
       #create: creates the schema, destroying previous data.
       #create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true  #日志中显示sql语句
